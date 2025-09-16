@@ -1,0 +1,63 @@
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerController : MonoBehaviour
+{
+
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Rigidbody2D rb;
+    private Vector2 moveInput;
+
+    [SerializeField] private float jumpForce = 10f;
+    private bool isGrounded;
+    [SerializeField] private float checkRadius;
+    [SerializeField] private LayerMask groundLayer;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        isGrounded = Physics2D.OverlapCircle(transform.position, checkRadius, groundLayer);
+        
+    }
+
+    void FixedUpdate()
+    {
+       rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+    }
+
+    void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+    }
+
+    void OnJump()
+    {
+        if (isGrounded == true)
+        {
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Trap"))
+        {
+            // Restart the game
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
+        else if (other.gameObject.CompareTag("Collectible"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+    
+
+}
