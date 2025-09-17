@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
    private Vector2 xInput;
-   [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpForce = 5f;
+   [SerializeField] private float speed = 13f;
+    [SerializeField] private float jumpForce = 11f;
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-           animator.SetTrigger("IsJumping");
+           animator.SetTrigger("isGrounded");
         }
     }
     void OnDrawGizmos()
