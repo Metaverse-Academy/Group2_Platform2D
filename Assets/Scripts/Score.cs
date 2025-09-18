@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int score = 0;
+   [SerializeField] private Text PlayerScoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,14 +18,23 @@ public class Score : MonoBehaviour
     {
 
     }
-    
-     void OnTriggerEnter2D(Collider2D other)
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-         if (other.gameObject.CompareTag("Collectible"))
+        if (other.gameObject.CompareTag("Collectible"))
         {
             score++;
+            PlayerScoreText.text = score.ToString();
             Debug.Log("Score: " + score);
             Destroy(other.gameObject);
+        }
+        
+        if (other.gameObject.CompareTag("Cat"))
+        {
+            Debug.Log("Player Has Won!");
+            // Add death or UI update logic here if needed
+            // Restart the game
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }
 }
