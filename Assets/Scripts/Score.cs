@@ -7,7 +7,8 @@ public class Score : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int score = 0;
-   
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip collectableSound;   
    [SerializeField] private TextMeshProUGUI scoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +27,7 @@ public class Score : MonoBehaviour
         if (other.gameObject.CompareTag("Collectible"))
         {
             score++;
-           
+            audioSource.PlayOneShot(collectableSound);
             scoreText.text = score.ToString();
             Debug.Log("Score: " + score);
             Destroy(other.gameObject);
