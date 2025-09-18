@@ -1,10 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 
 {
+    [SerializeField] private TextMeshProUGUI playerHPText;
 
-    [SerializeField] private int playerHP = 5;
+    [SerializeField] private int playerHP = 3;
     private int currentHP;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,10 +22,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
+        Debug.Log("Player HP: " + currentHP);
+        playerHPText.text = currentHP.ToString();
         if (currentHP <= 0)
         {
-            Destroy(gameObject);
-            //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }
 }

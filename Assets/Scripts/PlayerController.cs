@@ -48,18 +48,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Trap"))
-        {
-            // Restart the game
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-        }
-        else if (other.gameObject.CompareTag("Collectible"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
+   
      public void TakeDamage(int amount)
         {
             playerHP -= amount;
@@ -68,9 +57,5 @@ public class PlayerController : MonoBehaviour
             // Add death or UI update logic here if needed
         }
     
-        void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(groundCheckPosition.position, checkRadius);
-    }
+
 }

@@ -1957,6 +1957,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 478142168678676048, guid: 3f0588196eaeeb94f89ce4b0f6f91518, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300260, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
     - target: {fileID: 896408162612221743, guid: 3f0588196eaeeb94f89ce4b0f6f91518, type: 3}
       propertyPath: m_Name
       value: Trap 1
@@ -2024,6 +2028,8 @@ GameObject:
   - component: {fileID: 803465466}
   - component: {fileID: 803465467}
   - component: {fileID: 803465468}
+  - component: {fileID: 803465469}
+  - component: {fileID: 803465470}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2182,11 +2188,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 5
   rb: {fileID: 803465463}
+  playerHP: 5
   jumpForce: 10
   checkRadius: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  groundCheckPosition: {fileID: 0}
 --- !u!114 &803465468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2217,6 +2225,35 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &803465469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803465462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abf4f23b44763d4c8e1f554a6cf9b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Traps
+  rb: {fileID: 803465463}
+  playerHP: 5
+  amount: 1
+--- !u!114 &803465470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803465462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ac85b2fd327974e832a423b7babf0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectibles
+  rb: {fileID: 803465463}
+  score: 1
 --- !u!1001 &838469415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2317,7 +2354,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 0.84375, y: 0.84375}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

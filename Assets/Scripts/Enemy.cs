@@ -1,16 +1,21 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     public Transform player;
     public float chaseRadius = 1f;
-    public float chaseSpeed = 2f;
+    public float chaseSpeed = 1.5f;
+     [SerializeField] private TextMeshProUGUI youLoseText;
 
     [SerializeField] private float attackRadius = 1f;
-    [SerializeField] private float attackCooldown = 1f;
+    
     [SerializeField] private int damageAmount = 1;
+    public Score scoreManager;
 
     private EnemyState currentState;
+    public Button myButton;
     private float lastAttackTime = -Mathf.Infinity;
 
     void Start()
@@ -37,19 +42,23 @@ public class Enemy : MonoBehaviour
     {
         if (player == null) return;
         float distance = Vector2.Distance(transform.position, player.position);
-        if (distance < attackRadius && Time.time >= lastAttackTime + attackCooldown)
+        if (distance < attackRadius )
         {
             DoDamageToPlayer();
-            lastAttackTime = Time.time;
+            
         }
     }
 
     private void DoDamageToPlayer()
     {
-        PlayerController playerMovement = player.GetComponent<PlayerController>();
-        if (playerMovement != null)
-        {
-            playerMovement.TakeDamage(damageAmount);
-        }
+        youLoseText.text = "You Lose! Try Again!";
+        
+        youLoseText.gameObject.SetActive(true);
+        myButton.gameObject.SetActive(true);
+        Time.timeScale = 0f;
+        
+        
+        
+        // UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
