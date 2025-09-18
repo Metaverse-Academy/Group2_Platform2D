@@ -5,9 +5,11 @@ public class Traps : MonoBehaviour
 
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private int playerHP = 5;
+    [SerializeField] private int playerHP = 3;
     [SerializeField] private int amount = 1;
-    [SerializeField] private Text PLayerHPText;
+   
+    
+    public PlayerHealth playerHealth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,10 +28,7 @@ public class Traps : MonoBehaviour
         {
             rb.AddForceY(10, ForceMode2D.Impulse);
 
-            playerHP -= amount;
-            playerHP = Mathf.Max(playerHP, 0);
-            PLayerHPText.text = playerHP.ToString();
-            Debug.Log("Player HP: " + playerHP);
+            playerHealth.TakeDamage(amount);
 
 
 

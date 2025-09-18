@@ -171,6 +171,26 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1563925848375207474, guid: 1eb1c854b9856e6408651c2fd386f4e8, type: 3}
+      propertyPath: m_Size.x
+      value: 1.319503
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563925848375207474, guid: 1eb1c854b9856e6408651c2fd386f4e8, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7190255
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563925848375207474, guid: 1eb1c854b9856e6408651c2fd386f4e8, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04644507
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563925848375207474, guid: 1eb1c854b9856e6408651c2fd386f4e8, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.13838857
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920241565408531795, guid: 1eb1c854b9856e6408651c2fd386f4e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.83
+      objectReference: {fileID: 0}
     - target: {fileID: 7494650914487160660, guid: 1eb1c854b9856e6408651c2fd386f4e8, type: 3}
       propertyPath: m_Name
       value: CatHunter
@@ -263,7 +283,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 10.67
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -12147,7 +12167,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10.67
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -12172,7 +12192,7 @@ Transform:
   m_GameObject: {fileID: 1402235489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38852692, y: 0.2648883, z: -10}
+  m_LocalPosition: {x: -0.45355493, y: 0.6616114, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12339,7 +12359,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 52.8, y: 3.6, z: 0}
-  m_LocalScale: {x: 6.9046464, y: 2.5229099, z: 3.8814}
+  m_LocalScale: {x: 8.371883, y: 5.3611836, z: 3.8814}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

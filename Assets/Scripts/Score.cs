@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int score = 0;
-   [SerializeField] private Text PlayerScoreText;
+   
+   [SerializeField] private TextMeshProUGUI scoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +26,8 @@ public class Score : MonoBehaviour
         if (other.gameObject.CompareTag("Collectible"))
         {
             score++;
-            PlayerScoreText.text = score.ToString();
+           
+            scoreText.text = score.ToString();
             Debug.Log("Score: " + score);
             Destroy(other.gameObject);
         }

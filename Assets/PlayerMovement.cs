@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-           animator.SetTrigger("IsJumping");
+          // animator.SetTrigger("IsJumping");
         }
     }
     void OnDrawGizmos()

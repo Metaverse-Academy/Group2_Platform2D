@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public float chaseSpeed = 2f;
 
     [SerializeField] private float attackRadius = 1f;
-    [SerializeField] private float attackCooldown = 1f;
+    
     [SerializeField] private int damageAmount = 1;
 
     private EnemyState currentState;
@@ -37,19 +37,15 @@ public class Enemy : MonoBehaviour
     {
         if (player == null) return;
         float distance = Vector2.Distance(transform.position, player.position);
-        if (distance < attackRadius && Time.time >= lastAttackTime + attackCooldown)
+        if (distance < attackRadius )
         {
             DoDamageToPlayer();
-            lastAttackTime = Time.time;
+            
         }
     }
 
     private void DoDamageToPlayer()
     {
-        PlayerController playerMovement = player.GetComponent<PlayerController>();
-        if (playerMovement != null)
-        {
-            playerMovement.TakeDamage(damageAmount);
-        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
