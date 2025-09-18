@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 1180881371389709648}
   - component: {fileID: 8071987878092176271}
   - component: {fileID: 3653026593555224222}
+  - component: {fileID: -7161746658254134074}
+  - component: {fileID: -1508821899982579628}
   m_Layer: 0
   m_Name: CatHunter
   m_TagString: Untagged
@@ -218,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
-  jumpForce: 5
+  jumpForce: 7
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -303,3 +305,32 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-7161746658254134074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494650914487160660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ac85b2fd327974e832a423b7babf0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Score
+  rb: {fileID: 0}
+  score: 0
+--- !u!114 &-1508821899982579628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494650914487160660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abf4f23b44763d4c8e1f554a6cf9b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Traps
+  rb: {fileID: 0}
+  playerHP: 5
+  amount: 1
